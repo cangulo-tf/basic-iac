@@ -1,0 +1,85 @@
+{
+  "apps": {
+    "sensitive": false,
+    "type": [
+      "tuple",
+      [
+        [
+          "object",
+          {
+            "accounts": "string",
+            "arn": "string",
+            "envs": "string",
+            "id": "string",
+            "name": "string"
+          }
+        ],
+        [
+          "object",
+          {
+            "accounts": "string",
+            "arn": "string",
+            "envs": "string",
+            "id": "string",
+            "name": "string"
+          }
+        ],
+        [
+          "object",
+          {
+            "accounts": "string",
+            "arn": "string",
+            "envs": "string",
+            "id": "string",
+            "name": "string"
+          }
+        ],
+        [
+          "object",
+          {
+            "accounts": "string",
+            "arn": "string",
+            "envs": "string",
+            "id": "string",
+            "name": "string"
+          }
+        ]
+      ]
+    ],
+    "value": [
+      {
+        "accounts": "1 accounts has been created",
+        "arn": "arn:aws:organizations::144118247512:ou/o-el4svjnei8/ou-12b3-j2u2kpoz",
+        "envs": "no envs provided",
+        "id": "ou-12b3-j2u2kpoz",
+        "name": "common"
+      },
+      {
+        "accounts": "no accounts provided",
+        "arn": "arn:aws:organizations::144118247512:ou/o-el4svjnei8/ou-12b3-dtwoua8y",
+        "envs": "5 environments has been created",
+        "id": "ou-12b3-dtwoua8y",
+        "name": "journalbot"
+      },
+      {
+        "accounts": "no accounts provided",
+        "arn": "arn:aws:organizations::144118247512:ou/o-el4svjnei8/ou-12b3-2ci30tgl",
+        "envs": "no envs provided",
+        "id": "ou-12b3-2ci30tgl",
+        "name": "suspended-account"
+      },
+      {
+        "accounts": "no accounts provided",
+        "arn": "arn:aws:organizations::144118247512:ou/o-el4svjnei8/ou-12b3-d0lp4b6y",
+        "envs": "4 environments has been created",
+        "id": "ou-12b3-d0lp4b6y",
+        "name": "temp-app-envs"
+      }
+    ]
+  },
+  "resourgroup_name": {
+    "sensitive": false,
+    "type": "string",
+    "value": "base-iac"
+  }
+}
