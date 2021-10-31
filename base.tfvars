@@ -13,6 +13,9 @@ apps = [
     }]
   },
   {
+    name = "suspended-account"
+  },
+  {
     name = "temp-app-envs",
     envs = [
       {
@@ -28,6 +31,13 @@ apps = [
     ]
   },
   {
-    name = "suspended-account"
+    name = "journalbot",
+    envs = [
+      { name = "0-common" },
+      { name = "1-dev" },
+      { name = "2-tst" },
+      { name = "3-acc" },
+      { name = "4-prd" }
+    ]
   }
 ]
