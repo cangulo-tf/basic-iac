@@ -2,11 +2,13 @@ name: Release New Version
 
 on:
   workflow_dispatch:
-  workflow_run:
-    workflows: ["Terraform Apply"]
-    branches: [main]
+  pull_request:
     types:
-      - completed
+      - closed
+    branches:
+      - main
+    paths:
+      - "**.tf"
 
 jobs:
   release-new-version:
