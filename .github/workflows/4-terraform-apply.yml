@@ -2,14 +2,13 @@ name: "Terraform Apply"
 
 on:
   workflow_dispatch:
-  pull_request:
+  workflow_run:
+    workflows: ["Release New Version"]
+    branches: [main]
     types:
-      - closed
-    branches:
-      - main
+      - completed
     paths:
-      - "*.tf"
-      - "*.tfvars"
+      - "**.tf"
 
 jobs:
   terraform:
@@ -30,6 +29,7 @@ jobs:
         working-directory: config
         run: |
           new_version=$(jq '.currentVersion' ../cicd/versionTracker.json)
+          echo "NEW_VERSION=$new_version" >> $GITHUB_ENV
           ./preparetfvars.sh $new_version
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -54,7 +54,7 @@ jobs:
             git config user.name cangulo-github
             git config user.email cangulo-github@github.com
             git add .
-            git commit -m "tf: update tf config and current_state_resources_info"
+            git commit -m "[tf-deploy]: v${{ env.NEW_VERSION }} updated tfvars files and current_state_resources_info after deployment."
             git push
           else
             echo "no changes";

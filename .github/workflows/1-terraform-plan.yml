@@ -5,7 +5,7 @@ on:
   pull_request:
     types: [opened, synchronize]
     paths:
-      - "*.tf"
+      - "**.tf"
 
 jobs:
   terraform:
@@ -23,9 +23,8 @@ jobs:
       - name: Update tfvars
         working-directory: config
         run: |
-          new_version=$(jq '.currentVersion' ../cicd/versionTracker.json)
-          ./preparetfvars.sh $new_version
-
+          current_version=$(jq '.currentVersion' ../cicd/versionTracker.json)
+          ./preparetfvars.sh $current_version
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
