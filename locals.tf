@@ -16,4 +16,5 @@ locals {
     app_version     = var.app_version
     deployment_time = var.deployment_time
   }
+
 }
