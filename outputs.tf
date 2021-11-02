@@ -1,4 +1,5 @@
 output "apps" {
+  description = "organizations and accounts created under the app organization"
   value = [for o in values(module.organization_apps) : {
     name     = o.org_name
     id       = o.org_id
@@ -9,5 +10,6 @@ output "apps" {
 }
 
 output "resourgroup_name" {
-  value = aws_resourcegroups_group.main.name
+  description = "resource group which contains all the AWS resources created."
+  value       = aws_resourcegroups_group.main.name
 }
