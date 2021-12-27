@@ -51,7 +51,7 @@ jobs:
           terraform apply -auto-approve -var-file=config/base.tfvars
       - name: Output Terraform Variables
         run: terraform output -json > config/current_state_resources_info.json
-      - name: Commit New Resources Status
+      - name: Update Config Repo. Commit tfvars and resource updated
         working-directory: config
         run: |
           if [ -n "$(git status --porcelain)" ]; then
