@@ -1,0 +1,35 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "tf plan",
+            "type": "shell",
+            "command": "terraform plan -var-file=base.tfvars",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "tf apply",
+            "type": "shell",
+            "command": "terraform apply -var-file=base.tfvars -auto-approve",
+            "problemMatcher": []
+        },
+        {
+            "label": "tf list resources",
+            "type": "shell",
+            "command": "terraform state ls",
+            "problemMatcher": []
+        },
+        {
+            "label": "tf format all",
+            "type": "shell",
+            "command": "terraform fmt --recursive",
+            "problemMatcher": []
+        }
+    ]
+}

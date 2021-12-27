@@ -15,6 +15,8 @@ resource "aws_resourcegroups_group" "main" {
     })
   }
 
-  tags = local.resource_group_tags
-
+  tags = {
+    app_version     = var.app_version
+    deployment_time = var.deployment_time
+  }
 }

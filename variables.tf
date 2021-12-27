@@ -14,27 +14,37 @@ variable "deployment_time" {
   type = string
 }
 
-variable "top_org_units" {
-  type = list(string)
-}
 variable "apps" {
+  description = "App to be created as under the App OU"
+  type        = list(string)
+}
+
+variable "app_envs" {
+  description = "Default envs to create for each app"
+  type        = list(string)
+}
+
+variable "env_accounts" {
+  description = "AWS Accounts to link to the common_app_resources OU"
   type = list(object({
-    name = string
+    app = string
+    env = string
+    accounts = list(object({
+      name  = string
+      email = string
+    }))
+  }))
+}
 
-    accounts = optional(
-      list(object({
-        name  = string
-        email = string
-    })))
+variable "common_app_resources_ou" {
+  description = "OU to be created under App where all the shared resources will be created"
+  type        = string
+}
 
-    envs = optional(
-      list(object({
-        name = string
-        accounts = optional(
-          list(object({
-            name  = string
-            email = string
-        })))
-    })))
+variable "common_app_resources_accounts" {
+  description = "AWS Accounts to link to the common_app_resources OU"
+  type = list(object({
+    name  = string
+    email = string
   }))
 }
