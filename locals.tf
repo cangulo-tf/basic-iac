@@ -1,7 +1,7 @@
 locals {
   service_name = "base-iac"
 
-  top_org_units = ["apps", "suspended-accounts"]
+  top_org_units = ["suspended-accounts"]
 
   common_tags = {
     service_name = local.service_name
