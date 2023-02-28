@@ -35,16 +35,3 @@ variable "env_accounts" {
     }))
   }))
 }
-
-variable "common_app_resources_ou" {
-  description = "OU to be created under App where all the shared resources will be created"
-  type        = string
-}
-
-variable "common_app_resources_accounts" {
-  description = "AWS Accounts to link to the common_app_resources OU"
-  type = list(object({
-    name  = string
-    email = string
-  }))
-}
